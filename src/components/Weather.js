@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import BookmarkedDays from './bookmark';
 
-
 const Weather = () => {
   const [forecast, setForecast] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -87,20 +86,16 @@ const Weather = () => {
         Prognoza meteo și șansa de grătar în {location.name}
       </h2>
       <div className="row">
-        <div
-          className={`col-12 mb-4 ${
-            expandedDay === forecastday[0].date ? 'expanded' : ''
-          } cursor-pointer`}
-          onClick={() => togglePanel(forecastday[0].date)}
-        >
+        <div className={`col-12 mb-4 `}>
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">{forecastday[0].date}</h5>
               <p className="card-text">
                 Temperatura medie: {forecastday[0].day.avgtemp_c}°C
               </p>
+
               <p className="card-text">
-                Șansa de grătar reușit:{' '}
+                Sansa de grătar reusit:{' '}
                 {100 - forecastday[0].day.daily_chance_of_rain}%
               </p>
             </div>
@@ -123,7 +118,7 @@ const Weather = () => {
                       Average temperature: {day.day.avgtemp_c}°C
                     </p>
                     <p className="card-text">
-                      Șansa de un grătar reușit:{' '}
+                      Sansa de un grătar reusit:{' '}
                       {100 - day.day.daily_chance_of_rain}%
                     </p>
                     {!isBookmarked(day.date) && (
